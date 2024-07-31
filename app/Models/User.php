@@ -63,4 +63,9 @@ class User extends Authenticatable implements JWTSubject
     public function userToTeacher() {
         return $this->hasOne(Teachers::class, 'user_id', 'id');
     }
+
+    // One to Many towards Classes
+    public function userToClasses() {
+        return $this->hasMany(Classes::class, 'user_teacher_id', 'id');
+    }
 }

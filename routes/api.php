@@ -1,12 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClassesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
 
 Route::group([
     'middleware' => 'api',
@@ -19,3 +16,12 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:api')->name('refresh');
     Route::post('/me', [AuthController::class, 'me'])->middleware('auth:api')->name('me');
 });
+
+// Classes Routes
+Route::get('/classes', [ClassesController::class, 'index']);
+Route::get('/classes/{user_id}', [ClassesController::class, 'indexTeacher']);
+Route::get('/classes/show/{class_id}', [ClassesController::class, 'show']);
+Route::post('/classes/store',[ClassesController::class, 'store']);
+Route::put('/classes/update/{class_id}', [ClassesController::class, 'update']);
+Route::delete('/classes/delete/{class_id}', [ClassesController::class, 'destroy']);
+

@@ -91,8 +91,14 @@ class AuthController extends Controller
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Invalid email or password.'], 401);
         }
-    
-        return $this->respondWithToken($token);
+
+        // Return the token, but with the user data (id, role) as well
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => 1440,
+            'user' => auth()->user()->only(['id', 'role']),
+        ]);
     }
   
     /**
