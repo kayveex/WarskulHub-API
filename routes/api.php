@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\StudentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,12 @@ Route::get('/classes/show/{class_id}', [ClassesController::class, 'show']);
 Route::post('/classes/store',[ClassesController::class, 'store']);
 Route::put('/classes/update/{class_id}', [ClassesController::class, 'update']);
 Route::delete('/classes/delete/{class_id}', [ClassesController::class, 'destroy']);
+
+// Students Routes
+Route::get('/students', [StudentsController::class, 'index']);
+Route::post('/students/store', [StudentsController::class, 'store']);
+Route::put('/students/update/{student_id}', [StudentsController::class, 'update']);
+Route::delete('/students/delete/{student_id}', [StudentsController::class, 'destroy']);
+Route::get('/students/show/{student_id}', [StudentsController::class, 'show']);
+
 
