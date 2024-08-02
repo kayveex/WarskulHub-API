@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\ProkerController;
 use App\Http\Controllers\StudentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +33,13 @@ Route::post('/students/store', [StudentsController::class, 'store']);
 Route::put('/students/update/{student_id}', [StudentsController::class, 'update']);
 Route::delete('/students/delete/{student_id}', [StudentsController::class, 'destroy']);
 Route::get('/students/show/{student_id}', [StudentsController::class, 'show']);
+
+// Proker Routes
+Route::get('/proker', [ProkerController::class, 'index']);
+Route::get('/proker/{class_id}', [ProkerController::class, 'indexTeacher']);
+Route::post('/proker/store', [ProkerController::class, 'store']);
+Route::put('/proker/update/{proker_id}', [ProkerController::class, 'update']);
+Route::delete('/proker/delete/{proker_id}', [ProkerController::class, 'destroy']);
+Route::get('/proker/show/{proker_id}', [ProkerController::class, 'show']);
 
 

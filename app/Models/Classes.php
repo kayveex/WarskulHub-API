@@ -21,4 +21,9 @@ class Classes extends Model
     public function classesToUser() {
         return $this->belongsTo(User::class, 'user_teacher_id', 'id');
     }
+
+    // One to Many towards Proker
+    public function classesToProker() {
+        return $this->hasMany(Proker::class, 'class_id', 'id');
+    }
 }
