@@ -17,7 +17,7 @@ class Classes extends Model
         'user_teacher_id'
     ];
 
-    // One to Many towards User
+    // Many to One towards User
     public function classesToUser() {
         return $this->belongsTo(User::class, 'user_teacher_id', 'id');
     }
@@ -25,5 +25,10 @@ class Classes extends Model
     // One to Many towards Proker
     public function classesToProker() {
         return $this->hasMany(Proker::class, 'class_id', 'id');
+    }
+
+    // One to Many towards Totalscore
+    public function classesToTotalscore() {
+        return $this->hasMany(Totalscore::class, 'class_id', 'id');
     }
 }

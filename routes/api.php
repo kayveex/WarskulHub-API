@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\ProkerController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\TotalScoreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,4 +43,11 @@ Route::put('/proker/update/{proker_id}', [ProkerController::class, 'update']);
 Route::delete('/proker/delete/{proker_id}', [ProkerController::class, 'destroy']);
 Route::get('/proker/show/{proker_id}', [ProkerController::class, 'show']);
 
+// Totalscore Routes
+Route::get('/totalscore', [TotalScoreController::class, 'index']);
+Route::get('/totalscore/{class_id}', [TotalScoreController::class, 'indexByClassId']);
+Route::post('/totalscore/store', [TotalScoreController::class, 'store']);
+Route::put('/totalscore/update/{totalscore_id}', [TotalScoreController::class, 'update']);
+Route::delete('/totalscore/delete/{totalscore_id}', [TotalScoreController::class, 'destroy']);
+Route::get('/totalscore/show/{totalscore_id}', [TotalScoreController::class, 'show']);
 

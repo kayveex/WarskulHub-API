@@ -22,6 +22,11 @@ class Students extends Model
         'kelas',
     ];
 
+    // One to Many towards Totalscore
+    public function studentsToTotalscore() {
+        return $this->hasMany(Totalscore::class, 'student_id', 'id');
+    }
+
     protected static function booted()
     {
         parent::booted();
