@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\ProkerController;
+use App\Http\Controllers\StudentofclassController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\TotalScoreController;
 use Illuminate\Http\Request;
@@ -51,3 +52,10 @@ Route::put('/totalscore/update/{totalscore_id}', [TotalScoreController::class, '
 Route::delete('/totalscore/delete/{totalscore_id}', [TotalScoreController::class, 'destroy']);
 Route::get('/totalscore/show/{totalscore_id}', [TotalScoreController::class, 'show']);
 
+// Studentofclass Routes
+Route::get('/studentofclass', [StudentofclassController::class, 'index']);
+Route::get('/studentofclass/{class_id}', [StudentofclassController::class, 'indexByClassId']);
+Route::post('/studentofclass/store', [StudentofclassController::class, 'store']);
+Route::put('/studentofclass/update/{studentofclass_id}', [StudentofclassController::class, 'update']);
+Route::delete('/studentofclass/delete/{studentofclass_id}', [StudentofclassController::class, 'destroy']);
+Route::get('/studentofclass/show/{studentofclass_id}', [StudentofclassController::class, 'show']);

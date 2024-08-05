@@ -27,6 +27,11 @@ class Students extends Model
         return $this->hasMany(Totalscore::class, 'student_id', 'id');
     }
 
+    // One to Many towards Studentofclass
+    public function studentsToStudentofclass() {
+        return $this->hasMany(Studentofclass::class, 'student_id', 'id');
+    }
+
     protected static function booted()
     {
         parent::booted();

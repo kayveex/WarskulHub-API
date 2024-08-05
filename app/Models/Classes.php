@@ -31,4 +31,9 @@ class Classes extends Model
     public function classesToTotalscore() {
         return $this->hasMany(Totalscore::class, 'class_id', 'id');
     }
+
+    // One to Many towards Studentofclass
+    public function classesToStudentofclass() {
+        return $this->hasMany(Studentofclass::class, 'class_id', 'id');
+    }
 }
